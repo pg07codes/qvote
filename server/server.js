@@ -1,11 +1,17 @@
 const express = require('express');
 const path = require('path');
+require('./models')
+const router = require('./routes')
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, './../build')));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
-app.get('/*', function (req, res) {
+app.use('/qvote',router.qvoteRoute);
+
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './../build', 'index.html'));
 });
 
