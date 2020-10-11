@@ -1,2 +1,1 @@
-# qvote
-WIP
+react-node-custom-starter
